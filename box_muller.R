@@ -19,20 +19,21 @@ box_muller = function(u1, u2){
 
 u1=c(0.1 ,0.5 ,0.3)
 u2=c(0.7 ,0.9 ,0.1)
+print(u1)
 
 box_muller(u1,u2)
 
 box_muller_gauss = function(n){
-  u1 = r_unif(n/2)
-  u2 = r_unif(n/2)
+  u1 = runif(n/2)
+  u2 = runif(n/2)
   box_muller(u1,u2)
 }
 
 
 box_muller_gauss_nous = function(n){
-  u1 = r_unif(n/2,n, 2^16 +1 )
-  u2 = r_unif(n/2,n, 2^16 +1 )
+  u1 = r_unif(1,n/2, 2^16 +1 )
+  u2 = r_unif(1,n/2, 2^16 +1)
   box_muller(u1,u2)
 }
 
-hist(box_muller_gauss(1000000))
+hist(box_muller_gauss(1000))
